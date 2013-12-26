@@ -1,0 +1,16 @@
+<h1>Change project status</h1>
+
+<%= form_for @project, method: :patch do |f| %>
+  <p>
+    <%= f.radio_button :status, 'Accepted' %>
+    <%= f.label 'Accept' %>
+  </p>
+  <p>
+    <%= f.radio_button :status, 'Refused' %>
+    <%= f.label 'Refuse' %>
+  </p>
+  
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
