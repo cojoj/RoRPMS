@@ -5,15 +5,25 @@
       <th>Lp.</th>
       <th>Title</th>
       <th>Status</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
     
     <% projects(status).each_with_index do |project, index| %>
       <tr>
-        <td><%= index + 1 %></td>
+        <td><%= index + 1 %>.</td>
         <td><%= project.title %></td>
         <td>
           <%= project.status %><br>
           <%= link_to 'Change', edit_project_path(project.id) %>
+        </td>
+        <td>
+          <%= project.created_at.localtime.strftime('%F') %><br>
+          <%= project.created_at.localtime.strftime('%R') %>
+        </td>
+        <td>
+          <%= project.created_at.localtime.strftime('%F') %><br>
+          <%= project.created_at.localtime.strftime('%R') %>
         </td>
       </tr>
     <% end %>
