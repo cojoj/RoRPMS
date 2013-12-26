@@ -1,3 +1,21 @@
-<%= @projects.each do |project| %>
-	<%= project.title %>
+<% if projects(status).count > 0 %>
+  <h2><%= status %> projects</h2>
+  <table border='1'>
+    <tr>
+      <th>Lp.</th>
+      <th>Title</th>
+      <th>Status</th>
+    </tr>
+    
+    <% projects(status).each_with_index do |project, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= project.title %></td>
+        <td>
+          <%= project.status %><br>
+          <%= link_to 'Change', edit_project_path(project.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
